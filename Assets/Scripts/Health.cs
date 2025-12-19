@@ -2,7 +2,7 @@ using System;
 
 public class Health
 {
-    public event Action Died;
+    public event Action Changed;
     
     public Health(float currentHealth)
     {
@@ -16,7 +16,7 @@ public class Health
 
     public void Heal(float amount)
     {
-        if (CurrentHealth + amount >= MaxHealth)
+        if (CurrentHealth + amount > MaxHealth)
         {
             CurrentHealth = MaxHealth;
             
@@ -24,24 +24,19 @@ public class Health
         }
         
         CurrentHealth += amount;
+        Changed?.Invoke();
     }
 
     public void TakeDamage(float amount)
     {
-        if (CurrentHealth - amount <= 0)
+        if (CurrentHealth - amount < 0)
         {
             CurrentHealth = 0;
-            IsDead();
             
             return;
         }
         
         CurrentHealth -= amount;
-    }
-    
-    private void IsDead()
-    {
-        if (CurrentHealth <= 0)
-            Died?.Invoke();
+        Changed?.Invoke();
     }
 }
