@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public abstract class ActionButton : MonoBehaviour
+public class ActionButton : MonoBehaviour
 {
     [SerializeField] private float _value;
 
@@ -26,7 +26,7 @@ public abstract class ActionButton : MonoBehaviour
         _button.onClick.RemoveListener(OnButtonClick);
     }
     
-    private void OnButtonClick()
+    protected void OnButtonClick()
     {
         Triggered?.Invoke(_value);
     }
