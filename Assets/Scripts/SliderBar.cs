@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SliderBar : MonoBehaviour
+[RequireComponent(typeof(Slider))]
+public class SliderBar : HeartBar
 {
     private Slider _slider;
 
@@ -10,7 +11,7 @@ public class SliderBar : MonoBehaviour
         _slider = GetComponent<Slider>();
     }
     
-    public void OnValueChanged(float current, float max)
+    protected override void OnValueChanged(float current, float max)
     {
         _slider.value = current / max;
     }

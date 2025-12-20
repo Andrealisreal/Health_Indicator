@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbec1e20a5a50b54588dedaf393b5614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attacker
-  _value: 10
+  _damage: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac49a8470ccf9ec408e8838035bc3541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Healer
-  _value: 5
+  _amount: 5
 --- !u!1 &1433391701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,6 +1424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SmoothSliderBar
   _speed: 0.1
+  _delay: 0.001
 --- !u!1 &1750633632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,10 +1456,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   _attacker: {fileID: 396011870}
   _healer: {fileID: 1394195475}
-  _heartBars:
-  - {fileID: 1368905138}
-  - {fileID: 1590455497}
-  - {fileID: 1511126049}
+  _sliderBar: {fileID: 1368905138}
+  _smoothSliderBar: {fileID: 1590455497}
+  _textBar: {fileID: 1511126049}
   _maxHealth: 100
 --- !u!4 &1750633634
 Transform:

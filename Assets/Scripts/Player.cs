@@ -4,9 +4,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Attacker _attacker;
     [SerializeField] private Healer _healer;
-    [SerializeField] private SliderBar _sliderBar;
-    [SerializeField] private SmoothSliderBar _smoothSliderBar;
-    [SerializeField] private TextBar _textBar;
+    [SerializeField] private HeartBar[] _heartBars;
     [SerializeField] private float _maxHealth;
     
     private Health _health;
@@ -14,27 +12,20 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _health = new Health(_maxHealth);
-        _textBar.SetText(_maxHealth);
+        
+        foreach (var bar in _heartBars)
+            bar.Initialize(_health);
     }
 
     private void OnEnable()
     {
-        _attacker.Attacked += _health.TakeDamage;
-        _healer.Healed += _health.Heal;
-        _health.Changed += UpdateUI;
+        _attacker.Triggered += _health.TakeDamage;
+        _healer.Triggered += _health.Heal;
     }
     
     private void OnDisable()
     {
-        _attacker.Attacked -= _health.TakeDamage;
-        _healer.Healed -= _health.Heal;
-        _health.Changed -= UpdateUI;
-    }
-
-    private void UpdateUI()
-    {
-        _sliderBar.OnValueChanged(_health.CurrentHealth, _health.MaxHealth);
-        _smoothSliderBar.OnSmoothValueChanged(_health.CurrentHealth, _health.MaxHealth);
-        _textBar.OnTextChanged(_health.CurrentHealth, _health.MaxHealth);
+        _attacker.Triggered -= _health.TakeDamage;
+        _healer.Triggered -= _health.Heal;
     }
 }

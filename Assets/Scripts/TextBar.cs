@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class TextBar : MonoBehaviour
+[RequireComponent(typeof(TMPro.TextMeshProUGUI))]
+public class TextBar : HeartBar
 {
     private TMPro.TextMeshProUGUI _text;
 
@@ -9,13 +10,8 @@ public class TextBar : MonoBehaviour
         _text = GetComponent<TMPro.TextMeshProUGUI>();
     }
     
-    public void OnTextChanged(float current, float max)
+    protected override void OnValueChanged(float current, float max)
     {
         _text.text = $"{current}/{max}";
-    }
-
-    public void SetText(float max)
-    {
-        _text.text = $"{max}/{max}";
     }
 }
