@@ -4,7 +4,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Attacker _attacker;
     [SerializeField] private Healer _healer;
-    [SerializeField] private HeartBar[] _heartBars;
+    [SerializeField] private HealthView[] _heartBars;
     [SerializeField] private float _maxHealth;
     
     private Health _health;

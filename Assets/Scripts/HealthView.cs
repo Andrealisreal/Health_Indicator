@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class HeartBar : MonoBehaviour
+public abstract class HealthView : MonoBehaviour
 {
     private Health _health;
 

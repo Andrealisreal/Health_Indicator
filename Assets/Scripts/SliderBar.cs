@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class SliderBar : HeartBar
+public class SliderBar : HealthView
 {
     private Slider _slider;
 

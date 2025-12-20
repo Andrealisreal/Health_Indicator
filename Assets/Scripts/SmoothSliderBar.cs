@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class SmoothSliderBar : HeartBar
+public class SmoothSliderBar : HealthView
 {
     [SerializeField] private float _speed = 1f;
 
