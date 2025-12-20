@@ -9,12 +9,6 @@ public abstract class HealthView : MonoBehaviour
         _health.Changed -= OnValueChanged;
     }
     
-    private void OnDestroy()
-    {
-        if (_health != null)
-            _health.Changed -= OnValueChanged;
-    }
-    
     public void Initialize(Health health)
     {
         if (_health != null)
