@@ -26,7 +26,7 @@ public class ActionButton : MonoBehaviour
         _button.onClick.RemoveListener(OnButtonClick);
     }
     
-    protected void OnButtonClick()
+    private void OnButtonClick()
     {
         Triggered?.Invoke(_value);
     }
